@@ -1,38 +1,139 @@
-.App {
+body {
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.container {
   text-align: center;
+  margin: 6em 20em 2em 20em;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgb(0 0 0 / 30%) inset;
+  background-color: #f9f7f1;
+  height: 525px
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  font-size: 80px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.task-input {
+  padding: 5px;
+  width: 20em;
+  border-radius: 5px;
+  font-size: 20px;
+  margin: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 5px 0.5px rgb(0 0 0 / 30%);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.task-input:focus {
+  outline: none;
 }
 
-.App-link {
-  color: #61dafb;
+.button {
+  width: 5em;
+  height: 3em;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  box-shadow: 0 1px 1px 1px rgb(0 0 0 / 30%);
+  cursor: pointer;
+  color: #f9f7f1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button:active {
+  box-shadow: none;
+}
+
+.add {
+  background-color: #842d72;
+}
+
+.edit {
+  background-color: #38d7e7;
+}
+
+.disabled {
+  cursor: default !important;
+  background-color: gray !important;
+}
+
+.delete {
+  background-color: #ee316b;
+}
+
+ul {
+  list-style-type: none;
+  max-height: 320px;
+  overflow: auto;
+}
+
+.list {
+  cursor: default !important;
+}
+
+.done-item {
+  text-decoration: line-through;
+}
+
+.check-container {
+  display: inline-block;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 18px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  box-shadow: 0 1px 1px 1px rgb(0 0 0 / 30%);
+}
+
+.check-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: rgb(167, 163, 163);
+}
+
+.check-container:hover input~.checkmark {
+  background-color: #ccc;
+}
+
+.check-container input:checked~.checkmark {
+  background-color: #2196F3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.check-container input:checked~.checkmark:after {
+  display: block;
+}
+
+.check-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
